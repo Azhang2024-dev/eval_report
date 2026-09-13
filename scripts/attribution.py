@@ -125,7 +125,7 @@ def call_attribution_model(
     while True:
         if attempt == 0:
             retry_prompt = prompt
-        elif require_verification and last_parsed is not None and not last_parsed.get("原文核验") and attempt < retries - 1:
+        elif require_verification and last_parsed is not None and not last_parsed.get("原文核验"):
             retry_prompt = (
                 f"{prompt}\n\n注意：本次已提供原文核验材料，【原文核验】字段不得为空字符串，"
                 "请依据原文给出 ✅ 已核实 / ⚠️ 部分核实 / ⚠️ 标注问题 三态结论并指明原文位置。"
